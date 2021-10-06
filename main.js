@@ -10,7 +10,7 @@ function init(){
         source: new ol.source.OSM()
       })
     ],
-    target: 'js_map'
+    target: 'js-map'
   })
 }
 
