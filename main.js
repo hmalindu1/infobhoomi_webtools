@@ -2,8 +2,9 @@ window.onload = init;
 function init(){
   const map = new ol.Map({
     view: new ol.View({
-      center: [0, 0],
-      zoom: 2
+      projection: 'EPSG:4326',
+      center: [80.998158, 6.825878],
+      zoom: 12
     }),
     layers: [
       new ol.layer.Tile({
