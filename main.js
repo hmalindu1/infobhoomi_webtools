@@ -12,6 +12,20 @@ function init(){
       })
     ],
     target: 'js-map'
-  })
+  });
+
+  const popup_container_element = document.getElementById('popup-coordinates');
+  const popup = new ol.Overlay ({
+    element: popup_container_element
+  });
+
+  map.addOverlay(popup);
+
+  map.on('click',function (e) {
+    const clicked_coordinate =  e.coordinate;
+    popup.setPosition(undefined);
+    popup.setPosition(clicked_coordinate);
+    popup_container_element.innerHTML= clicked_coordinate;
+  });
 }
 
