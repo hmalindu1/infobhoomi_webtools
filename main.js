@@ -41,4 +41,23 @@ function init() {
     content.innerHTML = '<p>You clicked here:</p><code>' + coordinate + '</code>';;
     overlay.setPosition(coordinate);
   });
+
+  const drag_rotate_interaction = new ol.interaction.DragRotate({
+    condition: ol.events.condition.altKeyOnly
+  });
+
+  map.addInteraction(drag_rotate_interaction);
+
+  const draw_interaction = new ol.interaction.Draw({
+    type: 'Polygon',
+    freehand: true
+  });
+
+  map.addInteraction(draw_interaction);
+
+  draw_interaction.on('drawend', function(e) {
+    let parser = new ol.format.GeoJSON();
+    let drawn_features = parser.writeFeaturesObject([e.feature]);
+    console.log(drawn_features.features[0].geometry.coordinates);
+  });
 }
