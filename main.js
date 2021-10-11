@@ -36,17 +36,9 @@ function init() {
     keyboardEventTarget: document
   });
 
-  const popup_container_element = document.getElementById('popup-coordinates');
-  const popup = new ol.Overlay({
-    element: popup_container_element
-  });
-
-  map.addOverlay(popup);
-
-  map.on('click', function(e) {
-    const clicked_coordinate = e.coordinate;
-    popup.setPosition(undefined);
-    popup.setPosition(clicked_coordinate);
-    popup_container_element.innerHTML = clicked_coordinate;
+  map.on('singleclick', function(e) {
+    const coordinate = e.coordinate;
+    content.innerHTML = '<p>You clicked here:</p><code>' + coordinate + '</code>';;
+    overlay.setPosition(coordinate);
   });
 }
