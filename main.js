@@ -31,7 +31,9 @@ function init() {
         source: new ol.source.OSM()
       })
     ],
-    target: 'js-map'
+    overlays: [overlay],
+    target: 'js-map',
+    keyboardEventTarget: document
   });
 
   const popup_container_element = document.getElementById('popup-coordinates');
