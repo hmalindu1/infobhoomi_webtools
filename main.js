@@ -1,6 +1,25 @@
 window.onload = init;
 
 function init() {
+
+  const container = document.getElementById('popup-container');
+  const content = document.getElementById('popup-content');
+  const closer = document.getElementById('popup-closer');
+
+  const overlay = new ol.Overlay({
+    element: container,
+    autoPan: true,
+    autoPanAnimation: {
+      duration: 250,
+    },
+  });
+
+  closer.onclick = function() {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+  };
+
   const map = new ol.Map({
     view: new ol.View({
       projection: 'EPSG:4326',
