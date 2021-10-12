@@ -2,6 +2,20 @@ window.onload = init;
 
 function init() {
 
+  const full_screen_control = new ol.control.FullScreen();
+  const mouse_position_control = new ol.control.MousePosition();
+  const overview_map_control = new ol.control.OverviewMap({
+    collapsed: false,
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM()
+      })
+    ]
+  });
+  const scale_line_control = new ol.control.ScaleLine();
+  const zoom_slider_control = new ol.control.ZoomSlider();
+  const zoom_to_extent_control = new ol.control.ZoomToExtent();
+
   const container = document.getElementById('popup-container');
   const content = document.getElementById('popup-content');
   const closer = document.getElementById('popup-closer');
@@ -33,7 +47,15 @@ function init() {
     ],
     overlays: [overlay],
     target: 'js-map',
-    keyboardEventTarget: document
+    keyboardEventTarget: document,
+    controls:ol.control.defaults().extend([
+      full_screen_control,
+      mouse_position_control,
+      overview_map_control,
+      scale_line_control,
+      zoom_slider_control,
+      zoom_to_extent_control
+    ])
   });
 
   map.on('singleclick', function(e) {
