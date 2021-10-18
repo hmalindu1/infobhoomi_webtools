@@ -60,4 +60,9 @@ function init() {
 
   map.addLayer(cartoDB_base_layer);
 
+  // Tile Debug
+  /*const tile_debug_layer = new ol.layer.Tile({
+    source: new ol.source.TileDebug()
+  });
+  map.addLayer(tile_debug_layer);*/
 }
