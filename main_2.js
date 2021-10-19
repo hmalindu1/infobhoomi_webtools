@@ -6,7 +6,7 @@ function init() {
     view: new ol.View({
       projection: 'EPSG:4326',
       center: [80.998158, 6.825878], // remeber to set latlon in 'lon' first and 'lat' scecond
-      zoom: 12,
+      zoom: 2,
       // extent: [79.60507728159328, 5.87518664626196, 81.9021271806201, 9.873768101066211]
     }),
     layers: [
