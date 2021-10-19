@@ -13,7 +13,7 @@ function init() {
       new ol.layer.Tile({
         source: new ol.source.OSM(),
         zIndex: 1,
-        visible: false,
+        visible: true,
         // extent:[79.60507728159328, 5.87518664626196, 81.9021271806201, 9.873768101066211],
         opacity: 1
       })
@@ -46,9 +46,9 @@ function init() {
 
   map.addLayer(layer_group);
 
-/* map.on('click', function(e) {
-    console.log(e.coordinate);
-  })*/
+  /* map.on('click', function(e) {
+      console.log(e.coordinate);
+    })*/
 
   // CartoDB Basemap Layer
   const cartoDB_base_layer = new ol.layer.Tile({
@@ -71,7 +71,22 @@ function init() {
     source: new ol.source.TileArcGISRest({
       url: "http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Population_World/MapServer"
     }),
-    visible: true
+    visible: false
   })
   map.addLayer(tileArcGISLayer);
+
+  // NOAA WMS Layer
+  const noaa_wms_layer = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'https://nowcoast.noaa.gov/arcgis/services/nowcoast/analysis_ocean_sfc_sst_time/MapServer/WMSServer?',
+      params: {
+        LAYERS: 1,
+        FORMAT: 'image/png',
+        TRANSPARENT: true
+      }
+    }),
+    zIndex: 3,
+    visible: true
+  });
+  map.addLayer(noaa_wms_layer);
 }
