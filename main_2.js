@@ -78,7 +78,7 @@ function init() {
   // NOAA WMS Layer
   const noaa_wms_layer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-      url: 'https://nowcoast.noaa.gov/arcgis/services/nowcoast/analysis_ocean_sfc_sst_time/MapServer/WMSServer?',
+      url: 'https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_emulated_imagery_lightningstrikedensity_goes_time/MapServer/WMSServer?',
       params: {
         LAYERS: 1,
         FORMAT: 'image/png',
