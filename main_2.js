@@ -83,7 +83,8 @@ function init() {
         LAYERS: 1,
         FORMAT: 'image/png',
         TRANSPARENT: true
-      }
+      },
+      // attributions: '<a href=https://nowcoast.noaa.gov/>© NOAA</a>'
     }),
     zIndex: 3,
     visible: true
