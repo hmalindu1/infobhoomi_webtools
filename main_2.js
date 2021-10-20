@@ -90,4 +90,8 @@ function init() {
     visible: true
   });
   map.addLayer(noaa_wms_layer);
+
+  noaa_wms_layer.getSource().setAttributions('<a href=https://nowcoast.noaa.gov/>© NOAA</a>');
+
+  noaa_wms_layer.set("maxZoom",5); // layer dissapear after zoom level 5
 }
